@@ -1,14 +1,14 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import AboutMePage from "./pages/AboutMePage.tsx";
-import ExperiencePage from "./pages/ExperiencePage.tsx";
-import HomePage from "./pages/HomePage.tsx";
-import ProjectsPage from "./pages/ProjectsPage.tsx";
-import TopNavBar from "./TopNavBar.tsx";
+import { HashRouter, Routes, Route } from "react-router-dom";
+import AboutMePage from "./pages/AboutMePage";
+import ExperiencePage from "./pages/ExperiencePage";
+import HomePage from "./pages/HomePage";
+import ProjectsPage from "./pages/ProjectsPage";
+import TopNavBar from "./TopNavBar";
 
 export default function App(): JSX.Element {
   return (
-    <BrowserRouter>
+    <HashRouter>
         <div>
             <TopNavBar />
             <Routes>
@@ -18,6 +18,6 @@ export default function App(): JSX.Element {
                 <Route path="/experience" element={<ExperiencePage />} />
             </Routes>
         </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }

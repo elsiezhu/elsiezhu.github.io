@@ -7,7 +7,7 @@ import {
     Button,
     Link
 } from "@nextui-org/react";
-import { GitHubIcon, LinkedInIcon, MailIcon } from './icons/Icons.tsx';
+import { GitHubIcon, LinkedInIcon, MailIcon } from './icons/Icons';
 
 export default function TopNavBar(): JSX.Element {
 
@@ -31,19 +31,19 @@ export default function TopNavBar(): JSX.Element {
                 ],
           }}>
             <NavbarContent>
-                <NavbarBrand><Link size="lg" className="font-bold text-inherit" color="foreground" href="/">ELSIE ZHU</Link></NavbarBrand>
+                <NavbarBrand><Link size="lg" className="font-bold text-inherit" color="foreground" href="/#/">ELSIE ZHU</Link></NavbarBrand>
             </NavbarContent>
 
             {/* center menu items */}
             <NavbarContent className="sm:flex gap-4" justify="center">
                 <NavbarItem>
-                    <Link isBlock color="foreground" href="/about">About Me</Link>
+                    <Link isBlock color="foreground" href="/#/about">About Me</Link>
                 </NavbarItem>
                 <NavbarItem>
-                    <Link isBlock href="/experience" color="foreground">Experience</Link>
+                    <Link isBlock href="/#/experience" color="foreground">Experience</Link>
                 </NavbarItem>
                 <NavbarItem>
-                    <Link isBlock color="foreground" href="/projects">Projects</Link>
+                    <Link isBlock color="foreground" href="/#/projects">Projects</Link>
                 </NavbarItem>
             </NavbarContent>
             

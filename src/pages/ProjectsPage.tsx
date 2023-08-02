@@ -1,6 +1,6 @@
 import { Card, CardBody, Spacer } from '@nextui-org/react';
 import React from 'react';
-import { ConstructionIcon } from '../icons/Icons.tsx';
+import { ConstructionIcon } from '../icons/Icons';
 
 export default function ProjectsPage(): JSX.Element {
     return (
