@@ -4,19 +4,19 @@ import { icon } from '@fortawesome/fontawesome-svg-core/import.macro';
 
 export function GitHubIcon(): ReactNode {
     return (
-        <FontAwesomeIcon icon={icon({name: 'github', style: 'brands'})} />
+        <FontAwesomeIcon size="lg" icon={icon({name: 'github', style: 'brands'})} />
     );
 }
 
 export function LinkedInIcon(): ReactNode {
     return (
-        <FontAwesomeIcon icon={icon({name: 'linkedin', style: 'brands'})} />
+        <FontAwesomeIcon size="lg" icon={icon({name: 'linkedin', style: 'brands'})} />
     );
 }
 
 export function MailIcon(): ReactNode {
     return (
-        <FontAwesomeIcon icon={icon({name: 'envelope', style: 'regular'})} />
+        <FontAwesomeIcon size="lg" icon={icon({name: 'envelope', style: 'regular'})} />
     );
 }
 

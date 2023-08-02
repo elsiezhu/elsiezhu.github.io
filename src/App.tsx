@@ -4,7 +4,7 @@ import AboutMePage from "./pages/AboutMePage";
 import ExperiencePage from "./pages/ExperiencePage";
 import HomePage from "./pages/HomePage";
 import ProjectsPage from "./pages/ProjectsPage";
-import TopNavBar from "./TopNavBar";
+import TopNavBar from "./components/TopNavBar";
 
 export default function App(): JSX.Element {
   return (

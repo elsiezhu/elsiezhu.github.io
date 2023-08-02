@@ -5,7 +5,7 @@ import { ConstructionIcon } from '../icons/Icons';
 export default function AboutMePage(): JSX.Element {
     return (
         <div className="flex justify-center py-4">
-            <Card>
+            <Card className="bg-secondary-50">
                 <CardBody>
                     <div className="flex">
                         {ConstructionIcon()}
