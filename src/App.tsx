@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AboutMePage from "./pages/AboutMePage.tsx";
-import ErrorPage from "./pages/ErrorPage.tsx";
 import ExperiencePage from "./pages/ExperiencePage.tsx";
 import HomePage from "./pages/HomePage.tsx";
 import ProjectsPage from "./pages/ProjectsPage.tsx";
@@ -17,7 +16,6 @@ export default function App(): JSX.Element {
                 <Route path="/about" element={<AboutMePage />} />
                 <Route path="/projects" element={<ProjectsPage />} />
                 <Route path="/experience" element={<ExperiencePage />} />
-                <Route path="*" element={<ErrorPage />} />
             </Routes>
         </div>
     </BrowserRouter>
