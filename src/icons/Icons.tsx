@@ -25,3 +25,9 @@ export function ConstructionIcon(): ReactNode {
         <FontAwesomeIcon icon={icon({name:'screwdriver-wrench', style: 'solid'})} />
     );
 }
+
+export function FileIcon(): ReactNode {
+    return (
+        <FontAwesomeIcon icon={icon({name: 'file-export', style: 'solid'})} />
+    );
+}
