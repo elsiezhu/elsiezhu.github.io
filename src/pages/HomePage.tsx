@@ -1,19 +1,21 @@
-import { Card, CardBody, Spacer } from '@nextui-org/react';
+import { Box, Header, Heading, Main, Page, PageContent, Paragraph } from 'grommet';
 import React from 'react';
 import { ConstructionIcon } from '../icons/Icons';
 
 export default function HomePage(): JSX.Element {
+    
     return (
-        <div className="flex justify-center py-4">
-            <Card className="bg-secondary-50">
-                <CardBody>
-                    <div className="flex">
-                        {ConstructionIcon()}
-                        <Spacer x={4} />
-                        <p>This page is under construction...</p>
-                    </div>
-                </CardBody>
-            </Card>
-        </div>
+        <Box pad="large" background={"background-back"} height="large">
+            <Page kind="full">
+                <PageContent background={"light-3"} direction="column" gap="medium">
+                    <Heading alignSelf='center'>
+                        this page is under construction
+                    </Heading>
+                    <Paragraph alignSelf='center'>
+                        check back soon!
+                    </Paragraph>
+                </PageContent>
+            </Page>
+        </Box>
     );
 }
