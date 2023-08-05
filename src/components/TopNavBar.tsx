@@ -1,12 +1,22 @@
 import React from 'react';
 import { CloudIcon, FileIcon, GitHubIcon, LinkedInIcon, MailIcon } from '../icons/Icons';
-import { Anchor, Box, Header, Menu, ResponsiveContext, Button } from 'grommet';
+import { Anchor, Box, Header, Menu, ResponsiveContext, Button, ThemeContext } from 'grommet';
 import { Menu as MenuIcon } from 'grommet-icons';
+
+const anchorBorderColor = { 
+    global: { 
+        focus: { 
+            border: {
+                color: 'background-front'
+            }
+        } 
+    }
+};
 
 export default function TopNavBar() {
     const [isNavbarCollapsed, setIsNavbarCollapsed] = React.useState<boolean>(false)
     return (
-        <Header background="background-back" pad="medium" height="xsmall">
+        <Header background="background-front" pad="medium" height="xsmall">
             {BrandNavItem()}
             <ResponsiveContext.Consumer>
                 {(size) => size === 'small' ? MenuItems() : NavItems()}
@@ -18,24 +28,35 @@ export default function TopNavBar() {
 
 export function BrandNavItem() {
     return (
-        <Box justify='start' direction="row" gap="medium">
-            <Anchor
-                href="/#/"
-                icon={CloudIcon()}
-                label="Elsie Zhu"
-                size="xxlarge"
-            />
-        </Box>
+        <ThemeContext.Extend value={anchorBorderColor}>
+            <Box justify='start' direction="row" gap="medium">
+                <Anchor
+                    href="/#/"
+                    icon={CloudIcon()}
+                    label="Elsie Zhu"
+                    size="xxlarge"
+                    weight="bold"
+                />
+            </Box>
+        </ThemeContext.Extend>
     );
 }
 
 export function NavItems() {
     return (
         <Box justify="center" direction="row" gap="medium">
-            <Anchor href="/#/about" label="About Me"/>
-            <Anchor href="/#/experience" label="Experience"/>
-            <Anchor href="/#/projects" label="Projects"/>
-            <Anchor href="/#/" label="Resume" />
+            <ThemeContext.Extend value={anchorBorderColor}>
+                <Anchor href="/#/about" label="About Me"/>
+            </ThemeContext.Extend>
+            <ThemeContext.Extend value={anchorBorderColor}>
+                <Anchor href="/#/experience" label="Experience"/>
+            </ThemeContext.Extend>
+            <ThemeContext.Extend value={anchorBorderColor}>
+                <Anchor href="/#/projects" label="Projects"/>
+            </ThemeContext.Extend>
+            <ThemeContext.Extend value={anchorBorderColor}>
+                <Anchor href="/#/" label="Resume" />
+            </ThemeContext.Extend>
         </Box>
     );
 }
@@ -43,9 +64,9 @@ export function NavItems() {
 export function SocialItems() {
     return (
         <Box justify="center" direction="row" gap="medium">
-            <Button color="brand" plain={true} icon={LinkedInIcon()} href="https://www.linkedin.com/in/elsie-zhu" />
-            <Button color="brand" plain={true} icon={GitHubIcon()} href="https://github.com/elsiezhu" />
-            <Button color="brand" plain={true} icon={MailIcon()} href="mailto:elsie.zhu2003@gmail.com" />
+            <Button primary color="brand" plain={false} icon={LinkedInIcon()} href="https://www.linkedin.com/in/elsie-zhu" />
+            <Button primary color="brand" plain={false} icon={GitHubIcon()} href="https://github.com/elsiezhu" />
+            <Button primary color="brand" plain={false} icon={MailIcon()} href="mailto:elsie.zhu2003@gmail.com" />
         </Box>
     );
 }

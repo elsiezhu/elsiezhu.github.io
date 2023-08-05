@@ -1,18 +1,18 @@
-import { Box, Page, Heading, Paragraph, PageContent } from 'grommet';
+import { Box, Page, Heading, Paragraph, PageContent, Text } from 'grommet';
 import React from 'react';
 import { ConstructionIcon } from '../icons/Icons';
 
 export default function ProjectsPage(): JSX.Element {
     return (
-        <Box pad="large" background={"background-back"} height="large">
-            <Page kind="full">
-                <PageContent background={"light-3"} direction="column" gap="medium">
-                    <Heading alignSelf='center'>
+        <Box pad="large" background={"background-front"} height="large">
+            <Page kind="wide" gap="small">
+                <PageContent background={"background-front"} direction="column" gap="none">
+                    <Heading level={1} size="medium" alignSelf='center' margin="small">
                         this page is under construction
                     </Heading>
-                    <Paragraph alignSelf='center'>
+                    <Text size="large" alignSelf='center'>
                         check back soon!
-                    </Paragraph>
+                    </Text>
                 </PageContent>
             </Page>
         </Box>

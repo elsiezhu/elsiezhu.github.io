@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { grommet, Grommet } from 'grommet';
 import App from './App';
+import { deepMerge } from 'grommet/utils';
 
 const theme = grommet;
 
