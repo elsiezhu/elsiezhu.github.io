@@ -14,27 +14,42 @@ const anchorBorderColor = {
 };
 
 export default function TopNavBar() {
-    const [isNavbarCollapsed, setIsNavbarCollapsed] = React.useState<boolean>(false)
     return (
-        <Header background="background-front" pad="medium" height="xsmall">
-            {BrandNavItem()}
-            <ResponsiveContext.Consumer>
-                {(size) => size === 'small' ? MenuItems() : NavItems()}
-            </ResponsiveContext.Consumer>
-            {SocialItems()}
-        </Header>
+        <ResponsiveContext.Consumer>
+            {(size) => {
+                if (size === 'small') {
+                    return (
+                        <Header background="background-front" pad="medium" height="xsmall">
+                            <Box direction="row" gap="xsmall" align="center" justify='between'>
+                                {MenuItems()}
+                                {BrandNavItem(size)}
+                            </Box>
+                            {SocialItems(size)}
+                        </Header>
+                    );
+                } else {
+                    return (
+                        <Header background="background-front" pad="medium" height="xsmall">
+                            {BrandNavItem(size)}
+                            {NavItems()}
+                            {SocialItems(size)}
+                        </Header>  
+                    );
+                }
+            }}
+        </ResponsiveContext.Consumer>
     );
 }
 
-export function BrandNavItem() {
+export function BrandNavItem(size: string): JSX.Element {
     return (
         <ThemeContext.Extend value={anchorBorderColor}>
             <Box justify='start' direction="row" gap="medium">
                 <Anchor
                     href="/#/"
-                    icon={CloudIcon()}
+                    icon={size === "small" ? null : CloudIcon()}
                     label="Elsie Zhu"
-                    size="xxlarge"
+                    size={size === "small" ? "xlarge" : "xxlarge"}
                     weight="bold"
                 />
             </Box>
@@ -42,7 +57,7 @@ export function BrandNavItem() {
     );
 }
 
-export function NavItems() {
+export function NavItems(): JSX.Element {
     return (
         <Box justify="center" direction="row" gap="medium">
             <ThemeContext.Extend value={anchorBorderColor}>
@@ -61,22 +76,23 @@ export function NavItems() {
     );
 }
 
-export function SocialItems() {
+export function SocialItems(size: string): JSX.Element {
+    const isSmall: boolean = size === "small";
     return (
         <Box justify="center" direction="row" gap="medium">
-            <Button primary color="brand" plain={false} icon={LinkedInIcon()} href="https://www.linkedin.com/in/elsie-zhu" />
-            <Button primary color="brand" plain={false} icon={GitHubIcon()} href="https://github.com/elsiezhu" />
-            <Button primary color="brand" plain={false} icon={MailIcon()} href="mailto:elsie.zhu2003@gmail.com" />
+            {SocialButton(isSmall, LinkedInIcon(), "https://www.linkedin.com/in/elsie-zhu")}
+            {SocialButton(isSmall, GitHubIcon(), "https://github.com/elsiezhu")}
+            {SocialButton(isSmall, MailIcon(), "mailto:elsie.zhu2003@gmail.com")}
         </Box>
     );
 }
 
-export function MenuItems() {
+export function MenuItems(): JSX.Element {
     return (
         <Box justify="start">
             <Menu
                 a11yTitle="Navigation Menu"
-                dropProps={{ align: { top: 'bottom', right: 'right' } }}
+                dropProps={{ align: { top: 'bottom', left: 'left' } }}
                 icon={<MenuIcon color="brand" />}
                 size="xlarge"
                 items={[
@@ -100,4 +116,17 @@ export function MenuItems() {
             />
         </Box>
     );
+}
+
+function SocialButton(isSmall: boolean, icon: JSX.Element, href: string): JSX.Element {
+    return (
+        <Button 
+            primary={!isSmall} 
+            color="brand" 
+            plain={isSmall ? undefined : false} 
+            size={isSmall ? "large" : "medium"}
+            icon={icon} 
+            href={href} 
+        />
+    )
 }

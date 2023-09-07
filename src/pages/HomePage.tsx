@@ -5,13 +5,13 @@ import { ConstructionIcon } from '../icons/Icons';
 export default function HomePage(): JSX.Element {
     
     return (
-        <Box pad="large" background={"background-front"} height="large">
-            <Page kind="wide" gap="small">
-                <PageContent background={"background-front"} direction="column" gap="none">
-                    <Heading level={1} size="medium" alignSelf='center' margin="small">
+        <Box pad="large" background={"background-front"} height="large" responsive>
+            <Page kind="wide" gap="small" responsive>
+                <PageContent background={"background-front"} direction="column" gap="none" responsive>
+                    <Heading level={1} size="medium" alignSelf='center' textAlign="center" margin="small">
                         this page is under construction
                     </Heading>
-                    <Text size="large" alignSelf='center'>
+                    <Text size="large" alignSelf='center' textAlign="center">
                         check back soon!
                     </Text>
                 </PageContent>

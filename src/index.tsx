@@ -4,7 +4,17 @@ import { grommet, Grommet } from 'grommet';
 import App from './App';
 import { deepMerge } from 'grommet/utils';
 
-const theme = grommet;
+const colors = {
+    // brand: '#00563f',
+    // brand: '#327765',
+    brand: '#3e7868',
+};
+  
+const theme = deepMerge(grommet, {
+    global: {
+        colors
+    }
+});
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
