@@ -70,7 +70,7 @@ export function NavItems(): JSX.Element {
                 <Anchor href="/#/projects" label="Projects"/>
             </ThemeContext.Extend>
             <ThemeContext.Extend value={anchorBorderColor}>
-                <Anchor href="/#/" label="Resume" />
+                <Anchor href=" https://elsiezhu.github.io/elsiezhu_resume.pdf" target="_blank" label="Resume"></Anchor>
             </ThemeContext.Extend>
         </Box>
     );
