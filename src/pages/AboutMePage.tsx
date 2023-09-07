@@ -1,12 +1,47 @@
 import { Page, PageContent, Heading, Paragraph, Box, Text, Grid, Card, CardHeader, CardBody, CardFooter, ResponsiveContext } from 'grommet';
 import React from 'react';
+import CourseYearCard from '../components/CourseYearCard';
 import WorldMap from '../components/WorldMap';
 
+const courses1 = {
+    CSC110: "Foundations of Computer Science I",
+    CSC311: "Foundations of Computer Science II",
+    MAT137: "Calculus with Proofs",
+    MAT223: "Linear Algebra I",
+    CSB199: "Biotechnology and Society",
+    PSY100: "Introduction to Psychology",
+    SOC100: "Introduction to Sociology",
+    GGR124: "Cities and Urban Life",
+};
+
+const courses2 = {
+    CSC207: "Software Design",
+    CSC209: "Software Tools & System Programming",
+    CSC236: "Introduction to the Theory of Computation",
+    CSC263: "Data Structures & Algorithms",
+    CSC258: "Computer Organization",
+    MAT235: "Multivariable Calculus",
+    STA247: "Probability with Computer Applications",
+    PHY207: "Physics of Music",
+    ENT200: "Innovation & Entrepreneurship",
+};
+
+const courses3 = {
+    CSC373: "Algorithm Design, Analysis & Complexity",
+    CSC369: "Operating Systems",
+    CSC311: "Introduction to Machine Learning",
+    CSC385: "Microprocessor Systems",
+    CSC324: "Principles of Programming Languages",
+    CSC301: "Introduction to Software Engineering",
+    CSC309: "Programming on the Web",
+    CSC343: "Introduction to Databases",
+    CSC300: "Computers and Society",
+    WGS160: "Introduction to Women and Gender Studies",
+    GGR272: "Geographic Information and Mapping I",
+}
 export default function AboutMePage(): JSX.Element {
     function columns(size: string) {
-        if (size === "large") {
-            return 3;
-        } else if (size === "medium") {
+        if (size === "large" || size === "medium") {
             return 3;
         } else {
             return 1;
@@ -42,121 +77,21 @@ export default function AboutMePage(): JSX.Element {
                             Coursework @ UofT
                         </Heading>
                         <Grid columns={{count: columns(size), size: 'auto'}} gap="medium" align='start'>
-                            <Card pad={{left: "medium", right: "medium", bottom: "medium"}} background="#d8f2eb" gap="none">
-                                <CardHeader>
-                                    <Heading level={3}>
-                                        3rd Year (2023 - 2024)
-                                    </Heading>
-                                </CardHeader>
-                                <CardBody gap="small">
-                                <Text>
-                                        CSC373: Algorithm Design, Analysis & Complexity
-                                    </Text>
-                                    <Text>
-                                        CSC369: Operating Systems
-                                    </Text>
-                                    <Text>
-                                        CSC311: Introduction to Machine Learning
-                                    </Text>
-                                    <Text>
-                                        CSC263: Data Structures & Algorithms
-                                    </Text>
-                                    <Text>
-                                        CSC324: Principles of Programming Languages
-                                    </Text>
-                                    <Text>
-                                        CSC301: Introduction to Software Engineering
-                                    </Text>
-                                    <Text>
-                                        CSC309: Programming on the Web
-                                    </Text>
-                                    <Text>
-                                        CSC343: Introduction to Databases
-                                    </Text>
-                                    <Text>
-                                        CSC300: Computers and Society
-                                    </Text>
-                                    <Text>
-                                        WGS160: Introduction to Women and Gender Studies
-                                    </Text>
-                                    <Text>
-                                        GGR272: Geographic Information and Mapping I
-                                    </Text>
-                                </CardBody>
-                            </Card>
-                            <Card pad={{left: "medium", right: "medium", bottom: "medium"}} background="#d8f2eb" gap="none">
-                                <CardHeader>
-                                    <Heading level={3}>
-                                        2nd Year (2022 - 2023)
-                                    </Heading>
-                                </CardHeader>
-                                <CardBody gap="small">
-                                    <Text>
-                                        CSC207: Software Design
-                                    </Text>
-                                    <Text>
-                                        CSC209: Software Tools & System Programming
-                                    </Text>
-                                    <Text>
-                                        CSC236: Introduction to the Theory of Computation
-                                    </Text>
-                                    <Text>
-                                        CSC263: Data Structures & Algorithms
-                                    </Text>
-                                    <Text>
-                                        CSC258: Computer Organization
-                                    </Text>
-                                    <Text>
-                                        MAT235: Multivariable Calculus
-                                    </Text>
-                                    <Text>
-                                        STA247: Probability with Computer Applications
-                                    </Text>
-                                    <Text>
-                                        PHY207: Physics of Music
-                                    </Text>
-                                    <Text>
-                                        ENT200: Innovation & Entrepreneurship
-                                    </Text>
-                                </CardBody>
-                            </Card>
-                            <Card pad={{left: "medium", right: "medium", bottom: "medium"}} background="#d8f2eb" gap="none">
-                                <CardHeader>
-                                    <Heading level={3}>
-                                        1st Year (2021 - 2022)
-                                    </Heading>
-                                </CardHeader>
-                                <CardBody gap="small">
-                                    <Text>
-                                        CSC110: Foundations of Computer Science I
-                                    </Text>
-                                    <Text>
-                                        CSC111: Foundations of Computer Science II
-                                    </Text>
-                                    <Text>
-                                        MAT137: Calculus with Proofs
-                                    </Text>
-                                    <Text>
-                                        MAT223: Linear Algebra I
-                                    </Text>
-                                    <Text>
-                                        CSB199: Biotechnology and Society
-                                    </Text>
-                                    <Text>
-                                        PSY100: Introduction to Psychology
-                                    </Text>
-                                    <Text>
-                                        SOC100: Introduction to Sociology
-                                    </Text>
-                                    <Text>
-                                        GGR124: Cities and Urban Life
-                                    </Text>
-                                </CardBody>
-                            </Card>
+                            <CourseYearCard academicYear='3rd' startYear={2023} endYear={2024} courses={courses3} />
+                            <CourseYearCard academicYear='2nd' startYear={2022} endYear={2023} courses={courses2} />
+                            <CourseYearCard academicYear='1st' startYear={2021} endYear={2022} courses={courses1} />
                         </Grid>
                     </PageContent>
                 </Box>
             </Page>
         </Box>
     );
+}
+
+function CourseToTextList(coursesWithCodes: Object) {
+    const courses = [];
+    for (const [code, courseName] of Object.entries(coursesWithCodes)) {
+        courses.push(<Text>{`${code}: ${courseName}`}</Text>);
+    }
+    return courses;
 }
