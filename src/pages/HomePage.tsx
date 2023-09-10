@@ -1,4 +1,4 @@
-import { Box, Header, Heading, Main, Page, PageContent, Paragraph, Text } from 'grommet';
+import { Box, Header, Heading, Main, Page, PageContent, Paragraph, Text, Image } from 'grommet';
 import React from 'react';
 import { ConstructionIcon } from '../icons/Icons';
 
@@ -14,6 +14,12 @@ export default function HomePage(): JSX.Element {
                     <Text size="large" alignSelf='center' textAlign="center">
                         check back soon!
                     </Text>
+                    <Box height="small" width="small">
+                        <Image
+                            fit="cover"
+                            src="https://elsiezhu.github.io/me_1.PNG"
+                        />
+                    </Box>
                 </PageContent>
             </Page>
         </Box>
