@@ -61,14 +61,14 @@ export function NavItems(): JSX.Element {
     return (
         <Box justify="center" direction="row" gap="medium">
             <ThemeContext.Extend value={anchorBorderColor}>
-                <Anchor href="/#/about" label="About"/>
+                <Anchor href="/#/about" label="About Me"/>
             </ThemeContext.Extend>
             <ThemeContext.Extend value={anchorBorderColor}>
                 <Anchor href="/#/experience" label="Experience"/>
             </ThemeContext.Extend>
-            <ThemeContext.Extend value={anchorBorderColor}>
+            {/* <ThemeContext.Extend value={anchorBorderColor}>
                 <Anchor href="/#/projects" label="Projects"/>
-            </ThemeContext.Extend>
+            </ThemeContext.Extend> */}
             <ThemeContext.Extend value={anchorBorderColor}>
                 <Anchor href="https://elsiezhu.github.io/elsiezhu_resume.pdf" target="_blank" label="Resume"></Anchor>
             </ThemeContext.Extend>
@@ -97,17 +97,17 @@ export function MenuItems(): JSX.Element {
                 size="xlarge"
                 items={[
                     {
-                        label: <Box pad="small">About</Box>,
+                        label: <Box pad="small">About Me</Box>,
                         href: '/#/about',
                     },
                     {
                         label: <Box pad="small">Experience</Box>,
                         href: '/#/experience',
                     },
-                    {
-                        label: <Box pad="small">Projects</Box>,
-                        href: '/#/projects',
-                    },
+                    // {
+                    //     label: <Box pad="small">Projects</Box>,
+                    //     href: '/#/projects',
+                    // },
                     {
                         label: <Box pad="small">Resume</Box>,
                         href: '/#/',

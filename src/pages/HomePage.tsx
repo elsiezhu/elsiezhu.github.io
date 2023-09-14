@@ -22,11 +22,11 @@ export default function HomePage(): JSX.Element {
                             src="https://elsiezhu.github.io/me_2.PNG"
                         />
                     </Box>
-                    <Heading level={1} size="large" alignSelf='center' textAlign="center" margin="small">
+                    <Heading level={1} size="large" alignSelf='center' textAlign="center" margin="none">
                         Elsie Zhu
                     </Heading>
-                    <Text size="large" alignSelf='center' textAlign="center">
-                        check back soon!
+                    <Text size="large" alignSelf='center' textAlign="center" margin={size === 'small' ? {right: 'xsmall', left: 'xsmall'} : {right: 'xlarge', left: 'xlarge'}}>
+                        hello! I'm Elsie. I'm a 3rd year CS student at the University of Toronto who loves having fun while building great software. 
                     </Text>
                 </PageContent>
             </Page>
