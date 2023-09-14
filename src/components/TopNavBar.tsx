@@ -61,7 +61,7 @@ export function NavItems(): JSX.Element {
     return (
         <Box justify="center" direction="row" gap="medium">
             <ThemeContext.Extend value={anchorBorderColor}>
-                <Anchor href="/#/about" label="About Me"/>
+                <Anchor href="/#/about" label="About"/>
             </ThemeContext.Extend>
             <ThemeContext.Extend value={anchorBorderColor}>
                 <Anchor href="/#/experience" label="Experience"/>
@@ -70,7 +70,7 @@ export function NavItems(): JSX.Element {
                 <Anchor href="/#/projects" label="Projects"/>
             </ThemeContext.Extend>
             <ThemeContext.Extend value={anchorBorderColor}>
-                <Anchor href=" https://elsiezhu.github.io/elsiezhu_resume.pdf" target="_blank" label="Resume"></Anchor>
+                <Anchor href="https://elsiezhu.github.io/elsiezhu_resume.pdf" target="_blank" label="Resume"></Anchor>
             </ThemeContext.Extend>
         </Box>
     );
@@ -97,7 +97,7 @@ export function MenuItems(): JSX.Element {
                 size="xlarge"
                 items={[
                     {
-                        label: <Box pad="small">About Me</Box>,
+                        label: <Box pad="small">About</Box>,
                         href: '/#/about',
                     },
                     {
